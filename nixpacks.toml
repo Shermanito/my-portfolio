@@ -1,2 +1,15 @@
-[static]
-icon = "nginx"
+# Force the Node provider
+providers = ["node"]
+
+[phases.setup]
+# Remove 'npm' from this list; it is included with nodejs_20
+nixPkgs = ["nodejs_20"]
+
+[phases.install]
+cmds = ["npm install"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = 'echo "Build complete. Files ready in /dist"'
