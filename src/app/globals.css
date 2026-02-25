@@ -1,0 +1,458 @@
+@import "tailwindcss";
+
+/* Neobrutalist Minimalist Design System - Dark Theme Primary */
+:root {
+  /* Strict Grayscale Palette */
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+  --gray-300: #d4d4d4;
+  --gray-400: #a3a3a3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-700: #404040;
+  --gray-800: #262626;
+  --gray-900: #171717;
+  --gray-950: #0a0a0a;
+
+  /* Design System */
+  --border-color: #555555;
+  --border-light: #333333;
+  --accent: #ffffff;
+
+  /* Background - Dark theme as default */
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  --foreground-muted: #a3a3a3;
+  --card-bg: #171717;
+  --nav-bg: rgba(10, 10, 10, 0.95);
+
+  /* Spot color for interactive icons only */
+  --spot-color: #ff6b00;
+  
+  /* No shadows - flat design only */
+  /* No gradients */
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --border-color: #888888;
+  --border-light: #cccccc;
+  --accent: #000000;
+  --background: #ffffff;
+  --foreground: #111111;
+  --foreground-muted: #666666;
+  --card-bg: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.95);
+  --spot-color: #ff6b00;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-card-bg: var(--card-bg);
+  --color-nav-bg: var(--nav-bg);
+  --color-border: var(--border-color);
+  --color-border-light: var(--border-light);
+  --color-accent: var(--accent);
+  --color-spot: var(--spot-color);
+  --font-sans: var(--font-inter), Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Divider with plus junctions on both sides */
+.divider-plus {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 24px 0;
+}
+
+.divider-plus::before {
+  content: '+';
+  font-size: 20px;
+  color: var(--border-color);
+  background: var(--background);
+  padding: 0 8px;
+  line-height: 1;
+}
+
+.divider-plus::after {
+  content: '+';
+  font-size: 20px;
+  color: var(--border-color);
+  background: var(--background);
+  padding: 0 8px;
+  line-height: 1;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+/* Neobrutalist card - flat, bordered, sharp corners */
+.neo-card {
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  transition: border-color 0.2s ease;
+}
+
+.neo-card:hover {
+  border-color: var(--spot-color);
+}
+
+/* Section dividers */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 0;
+}
+
+/* Typography utilities */
+.heading-xl {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.heading-lg {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.heading-md {
+  font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.text-body {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.text-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+}
+
+/* Selection */
+::selection {
+  background: var(--spot-color);
+  color: var(--background);
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid var(--spot-color);
+  outline-offset: 2px;
+}
+
+/* Remove default button styles */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Link styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Image container */
+.img-container {
+  background: var(--gray-800);
+  border: 1px solid var(--border-color);
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content max-width */
+.content-wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 64px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0;
+  background: var(--nav-bg);
+  border-right: 1px solid var(--border-color);
+  z-index: 50;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+/* Mobile Bottom Navigation */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--nav-bg);
+  border-top: 1px solid var(--border-color);
+  padding: 8px 16px;
+  padding-bottom: calc(8px + env(safe-area-inset-bottom));
+  z-index: 50;
+}
+
+@media (max-width: 768px) {
+  .mobile-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.mobile-nav-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  color: var(--foreground-muted);
+  font-size: 10px;
+  gap: 4px;
+}
+
+.mobile-nav-icon.active {
+  color: var(--spot-color);
+}
+
+.mobile-nav-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Main content area with sidebar */
+.main-with-sidebar {
+  margin-left: 64px;
+}
+
+@media (max-width: 768px) {
+  .main-with-sidebar {
+    margin-left: 0;
+    margin-bottom: 70px;
+  }
+}
+
+/* Theme toggle */
+.theme-toggle {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  color: var(--foreground-muted);
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--spot-color);
+  color: var(--spot-color);
+}
+
+/* Sidebar icon button */
+.sidebar-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--foreground-muted);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.sidebar-icon:hover {
+  color: var(--foreground);
+}
+
+.sidebar-icon::after {
+  content: '';
+  position: absolute;
+  left: -12px;
+  width: 2px;
+  height: 0;
+  background: var(--spot-color);
+  transition: height 0.2s ease;
+}
+
+.sidebar-icon:hover::after,
+.sidebar-icon.active::after {
+  height: 20px;
+}
+
+.sidebar-icon.active {
+  color: var(--spot-color);
+}
+
+/* Available for work badge */
+.available-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Filter buttons */
+.filter-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--foreground-muted);
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--foreground);
+  color: var(--foreground);
+}
+
+.filter-btn.active {
+  background: var(--spot-color);
+  border-color: var(--spot-color);
+  color: white;
+}
+
+/* Centered headers */
+.centered-header {
+  text-align: center;
+}
+
+.centered-header .heading-lg {
+  display: inline-block;
+}
+
+/* Timeline styles */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border-color);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 32px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -32px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  background: var(--background);
+  border: 2px solid var(--border-color);
+}
+
+.timeline-item.active .timeline-dot {
+  border-color: var(--spot-color);
+}
+
+/* Portfolio image */
+.portfolio-img {
+  aspect-ratio: 16/9;
+  background: var(--gray-800);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.portfolio-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-img:hover img {
+  transform: scale(1.05);
+}

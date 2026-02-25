@@ -1,0 +1,47 @@
+export interface Experience {
+  id: string;
+  type: 'full-time' | 'internship';
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+  highlights: string[];
+}
+
+export interface MarketingProject {
+  id: string;
+  company: string;
+  industry: string;
+  services: string[];
+  results: string[];
+  testimonial?: string;
+  testimonialAuthor?: string;
+}
+
+export interface Project {
+  id: string;
+  name: string;
+  description: string;
+  tech: string[];
+  link?: string;
+  github?: string;
+}
+
+export interface TechItem {
+  category: string;
+  items: string[];
+}
+
+export interface Testimonial {
+  id: string;
+  quote: string;
+  author: string;
+  title: string;
+  company?: string;
+}
+
+export interface SocialLink {
+  name: string;
+  url: string;
+  icon: string;
+}
