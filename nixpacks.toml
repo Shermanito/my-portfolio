@@ -3,7 +3,7 @@ providers = ["node"]
 
 [phases.setup]
 # Remove 'npm' from this list; it is included with nodejs_20
-nixPkgs = ["nodejs_20"]
+nixPkgs = ["nodejs_22"]
 
 [phases.install]
 cmds = ["npm install"]
