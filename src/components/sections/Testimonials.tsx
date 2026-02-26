@@ -1,9 +1,18 @@
 'use client';
 
 import { Section, SectionHeader } from '@/components/ui/Section';
-import { testimonials } from '@/data/testimonials';
-import { Card, CardContent } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
+import { testimonials as testimonialData } from '@/data/testimonials';
+import TestimonialsComponent from '@/components/shadcn-studio/blocks/testimonials-component-01/testimonials-component-01';
+
+// Adapt existing data to new component format
+const testimonials = testimonialData.map((t) => ({
+  name: t.author,
+  role: t.title,
+  company: t.company || '',
+  avatar: '',
+  rating: 5,
+  content: t.quote,
+}));
 
 export function Testimonials() {
   return (
@@ -14,25 +23,7 @@ export function Testimonials() {
         centered={true}
       />
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {testimonials.map((testimonial) => (
-          <Card key={testimonial.id} className="p-6">
-            <CardContent className="p-0">
-              <blockquote className="text-muted-foreground mb-6">
-                &ldquo;{testimonial.quote}&rdquo;
-              </blockquote>
-              <Separator className="my-4" />
-              <div>
-                <p className="font-semibold">{testimonial.author}</p>
-                <p className="text-sm text-muted-foreground">
-                  {testimonial.title}
-                  {testimonial.company && `, ${testimonial.company}`}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      <TestimonialsComponent testimonials={testimonials} />
     </Section>
   );
 }

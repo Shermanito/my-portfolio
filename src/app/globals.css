@@ -250,8 +250,8 @@ body {
   outline-offset: 2px;
 }
 
-/* Remove default button styles */
-button {
+/* Remove default button styles (exclude shadcn buttons) */
+button:not([data-slot="button"]) {
   background: none;
   border: none;
   cursor: pointer;
@@ -504,7 +504,8 @@ a {
   width: 16px;
   height: 16px;
   background: var(--background);
-  border: 2px solid var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
 }
 
 .timeline-item.active .timeline-dot {
