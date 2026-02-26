@@ -1,5 +1,8 @@
+'use client';
+
 import { Section, SectionHeader } from '@/components/ui/Section';
 import { techStack } from '@/data/tech';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 export function TechStack() {
   return (
@@ -12,17 +15,21 @@ export function TechStack() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {techStack.map((category) => (
-          <div key={category.category} className="neo-card p-6">
-            <h3 className="heading-md mb-4">{category.category}</h3>
-            <ul className="space-y-2">
-              {category.items.map((item, i) => (
-                <li key={i} className="text-sm text-foreground-muted flex items-center gap-2">
-                  <span className="w-1 h-1 bg-[var(--spot-color)]" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Card key={category.category} className="p-6">
+            <CardHeader className="p-0 pb-4">
+              <CardTitle className="text-lg">{category.category}</CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+              <ul className="space-y-2">
+                {category.items.map((item, i) => (
+                  <li key={i} className="text-sm text-muted-foreground flex items-center gap-2">
+                    <span className="w-1 h-1 bg-[var(--spot-color)] rounded-full" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </Section>
