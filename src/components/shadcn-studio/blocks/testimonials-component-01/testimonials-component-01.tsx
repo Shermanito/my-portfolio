@@ -1,5 +1,10 @@
+'use client'
+
+import { useState } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card, CardContent } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
 import {
   Carousel,
   CarouselContent,
@@ -16,6 +21,7 @@ export type TestimonialItem = {
   avatar: string
   rating: number
   content: string
+  summary: string
 }
 
 type TestimonialsComponentProps = {
@@ -23,6 +29,29 @@ type TestimonialsComponentProps = {
 }
 
 const TestimonialsComponent = ({ testimonials }: TestimonialsComponentProps) => {
+  const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set())
+
+  const toggleExpand = (index: number) => {
+    setExpandedIds(prev => {
+      const next = new Set(prev)
+      if (next.has(index)) {
+        next.delete(index)
+      } else {
+        next.add(index)
+      }
+      return next
+    })
+  }
+
+  const isExpanded = (index: number) => expandedIds.has(index)
+
+  // Check if content would overflow (triggers line-clamp)
+  const needsTruncation = (content: string) => {
+    // Rough estimate: ~100 chars per line with text-md
+    // line-clamp-6 shows ~6 lines, so ~600 chars max visible
+    return content.length > 200
+  }
+
   return (
     <section className='py-8 sm:py-16 lg:py-24'>
       <Carousel
@@ -34,12 +63,12 @@ const TestimonialsComponent = ({ testimonials }: TestimonialsComponentProps) => 
       >
         {/* Left Content */}
         <div className='space-y-4 sm:w-1/2 lg:w-1/3'>
-          <p className='text-primary text-sm font-medium uppercase'>Real customers</p>
+          <p className='text-primary text-sm font-medium uppercase'>Real clients</p>
 
-          <h2 className='text-2xl font-semibold sm:text-3xl lg:text-4xl'>Customers Feedback</h2>
+          <h2 className='text-2xl font-semibold sm:text-3xl lg:text-4xl'>Client Feedback</h2>
 
           <p className='text-muted-foreground text-xl'>
-            From career changes to dream jobs, here&apos;s how Shadcn Studio helped.
+            From website migrations to performance optimization, here&apos;s what working with me has been like.
           </p>
 
           <div className='flex items-center gap-4'>
@@ -81,8 +110,31 @@ const TestimonialsComponent = ({ testimonials }: TestimonialsComponentProps) => 
                       </div>
                     </div>
 
+                    {testimonial.summary && (
+                      <Badge variant='secondary'>
+                        {testimonial.summary}
+                      </Badge>
+                    )}
+
                     <Rating readOnly variant='yellow' size={24} value={testimonial.rating} precision={0.5} />
-                    <p>{testimonial.content}</p>
+                    <div className='space-y-2'>
+                      <p
+                        className={`text-md ${
+                          !isExpanded(index) ? 'line-clamp-6' : ''
+                        }`}
+                      >
+                        {testimonial.content}
+                      </p>
+                      {needsTruncation(testimonial.content) && (
+                        <Button
+                          variant='link'
+                          className='h-auto p-0'
+                          onClick={() => toggleExpand(index)}
+                        >
+                          {isExpanded(index) ? 'Read less' : 'Read more'}
+                        </Button>
+                      )}
+                    </div>
                   </CardContent>
                 </Card>
               </CarouselItem>

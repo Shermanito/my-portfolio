@@ -38,6 +38,7 @@ export interface Testimonial {
   author: string;
   title: string;
   company?: string;
+  summary?: string;
 }
 
 export interface SocialLink {

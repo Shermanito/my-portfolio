@@ -12,6 +12,7 @@ const testimonials = testimonialData.map((t) => ({
   avatar: '',
   rating: 5,
   content: t.quote,
+  summary: t.summary || '',
 }));
 
 export function Testimonials() {
