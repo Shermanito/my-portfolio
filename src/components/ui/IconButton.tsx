@@ -11,7 +11,7 @@ export function IconButton({ href, label, children }: IconButtonProps) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="inline-flex items-center justify-center w-10 h-10 border border-border text-muted-foreground hover:border-foreground hover:text-foreground transition-colors rounded-md"
+      className="inline-flex items-center justify-center w-10 h-10 border border-border bg-background text-muted-foreground hover:border-foreground hover:text-foreground transition-colors rounded-md"
     >
       {children}
     </a>

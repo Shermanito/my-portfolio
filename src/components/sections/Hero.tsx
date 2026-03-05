@@ -5,11 +5,15 @@ import { IconButton, LinkedInIcon, GitHubIcon, MailIcon } from '@/components/ui/
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { DotBackground } from '@/components/ui/DotBackground';
 
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center pt-20 px-4 md:px-8">
-      <div className="content-wrapper w-full">
+    <section className="relative min-h-screen flex items-center pt-20 px-4 md:px-8 overflow-hidden">
+      {/* Dot Background Layer */}
+      <DotBackground className="absolute inset-0" style={{ minHeight: '100vh' }} />
+      
+      <div className="content-wrapper w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           {/* Left Content */}
                     <div className="relative">
