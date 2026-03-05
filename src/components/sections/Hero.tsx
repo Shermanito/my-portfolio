@@ -2,6 +2,8 @@
 
 import { personalInfo } from '@/data/personal';
 import { IconButton, LinkedInIcon, GitHubIcon, MailIcon } from '@/components/ui/IconButton';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 export function Hero() {
   return (
@@ -10,33 +12,27 @@ export function Hero() {
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           {/* Left Content */}
           <div>
-            <p className="text-mono text-sm text-foreground-muted mb-4">
+            <p className="text-mono text-sm text-muted-foreground mb-4">
               DIGITAL MARKETING + DEVELOPMENT
             </p>
             <h1 className="heading-xl mb-6">
               {personalInfo.name}
             </h1>
-            <p className="text-xl md:text-2xl text-foreground-muted mb-8 max-w-lg">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-lg">
               {personalInfo.title}
             </p>
-            <p className="text-foreground-muted mb-8 max-w-md">
+            <p className="text-muted-foreground mb-8 max-w-md">
               {personalInfo.tagline}
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 mb-8">
-              <a
-                href="#contact"
-                className="inline-flex items-center px-6 py-3 border border-[var(--spot-color)] bg-[var(--spot-color)] text-white hover:opacity-90 transition-opacity"
-              >
-                Get in Touch
-              </a>
-              <a
-                href="#projects"
-                className="inline-flex items-center px-6 py-3 border border-[var(--border-color)] hover:border-foreground transition-colors"
-              >
-                View Projects
-              </a>
+              <Button asChild>
+                <a href="#contact">Get in Touch</a>
+              </Button>
+              <Button variant="outline" asChild>
+                <a href="#projects">View Projects</a>
+              </Button>
             </div>
 
             {/* Social Links */}
@@ -53,44 +49,51 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Content - Image (50% smaller) + 2x2 Grid */}
+          {/* Right Content - Image + 2x2 Grid */}
           <div className="space-y-4">
             {/* Hero Image */}
             <div className="relative">
-              <div className="neo-card aspect-[4/3] flex items-center justify-center overflow-hidden">
-                {/* Use the provided hero image - place in public folder */}
-                <img 
-                  src="/465997400 (1).jpeg" 
+              <Card className="aspect-[4/3] overflow-hidden p-0">
+                <img
+                  src="/465997400 (1).jpeg"
                   alt={personalInfo.name}
                   className="w-full h-full object-cover"
                 />
-              </div>
-              
+              </Card>
+
               {/* Available for Work Badge */}
-              <div className="available-badge">
-                <span className="live-dot"></span>
+              <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-card border border-border px-3 py-1.5 text-xs">
+                <span className="w-2 h-2 rounded-full bg-[var(--spot-color)] animate-pulse" />
                 <span>Available for Work</span>
               </div>
             </div>
 
             {/* 2x2 Stats Grid */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="neo-card p-4 text-center">
-                <div className="text-2xl font-bold mb-1">5+</div>
-                <div className="text-xs text-foreground-muted">Years Exp</div>
-              </div>
-              <div className="neo-card p-4 text-center">
-                <div className="text-2xl font-bold mb-1">$500K+</div>
-                <div className="text-xs text-foreground-muted">Ad Spend</div>
-              </div>
-              <div className="neo-card p-4 text-center">
-                <div className="text-2xl font-bold mb-1">50+</div>
-                <div className="text-xs text-foreground-muted">Clients</div>
-              </div>
-              <div className="neo-card p-4 text-center">
-                <div className="text-2xl font-bold mb-1">200%</div>
-                <div className="text-xs text-foreground-muted">Avg Growth</div>
-              </div>
+              <Card className="p-4 text-center">
+                <CardContent className="p-0">
+                  <div className="text-2xl font-bold mb-1">5+</div>
+                  <div className="text-xs text-muted-foreground">Years Exp</div>
+                </CardContent>
+              </Card>
+              <Card className="p-4 text-center">
+                <CardContent className="p-0">
+                  <div className="text-2xl font-bold mb-1">$500K+</div>
+                  <div className="text-xs text-muted-foreground">Ad Spend</div>
+                </CardContent>
+              </Card>
+              <Card className="p-4 text-center">
+                <CardContent className="p-0">
+                  <div className="text-2xl font-bold mb-1">50+</div>
+                  <div className="text-xs text-muted-foreground">Clients</div>
+                </CardContent>
+              </Card>
+              <Card className="p-4 text-center">
+                <CardContent className="p-0">
+                  <div className="text-2xl font-bold mb-1">200%</div>
+                  <div className="text-xs text-muted-foreground">Avg Growth</div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>

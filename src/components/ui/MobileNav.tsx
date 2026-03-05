@@ -68,22 +68,6 @@ function MailIcon() {
   );
 }
 
-function SunIcon() {
-  return (
-    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="square" strokeWidth="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-    </svg>
-  );
-}
-
-function MoonIcon() {
-  return (
-    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="square" strokeWidth="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-    </svg>
-  );
-}
-
 const iconMap: Record<string, React.ReactNode> = {
   '#about': <UserIcon />,
   '#experience': <BriefcaseIcon />,
@@ -96,23 +80,11 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export function MobileNav() {
   const [activeSection, setActiveSection] = useState('#about');
-  const [theme, setTheme] = useState('dark');
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, []);
-
-  const toggleTheme = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = navLinks.map(link => link.href.slice(1));
-      
+
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element) {
@@ -129,12 +101,9 @@ export function MobileNav() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Only show relevant icons for mobile nav (limit to 5 for spacing)
-  const mobileLinks = navLinks.slice(0, 5);
-
   return (
     <nav className="mobile-nav">
-      {mobileLinks.map((link) => (
+      {navLinks.map((link) => (
         <a
           key={link.name}
           href={link.href}
@@ -144,10 +113,6 @@ export function MobileNav() {
           <span>{link.name}</span>
         </a>
       ))}
-      <button onClick={toggleTheme} className="mobile-nav-icon">
-        {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-        <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
-      </button>
     </nav>
   );
 }
