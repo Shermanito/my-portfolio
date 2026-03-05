@@ -219,17 +219,6 @@ body {
   background: var(--border-color);
 }
 
-/* Neobrutalist card - flat, bordered, sharp corners */
-.neo-card {
-  border: 1px solid var(--border-color);
-  background: var(--card-bg);
-  transition: border-color 0.2s ease;
-}
-
-.neo-card:hover {
-  border-color: var(--spot-color);
-}
-
 /* Section dividers */
 .section-divider {
   border: none;
