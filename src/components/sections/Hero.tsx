@@ -4,6 +4,7 @@ import { personalInfo } from '@/data/personal';
 import { IconButton, LinkedInIcon, GitHubIcon, MailIcon } from '@/components/ui/IconButton';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 export function Hero() {
   return (
@@ -11,7 +12,10 @@ export function Hero() {
       <div className="content-wrapper w-full">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           {/* Left Content */}
-          <div>
+                    <div className="relative">
+            <div className="absolute top-0 right-0">
+              <ThemeToggle />
+            </div>
             <p className="text-mono text-sm text-muted-foreground mb-4">
               DIGITAL MARKETING + DEVELOPMENT
             </p>
