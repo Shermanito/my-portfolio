@@ -12,7 +12,7 @@ export function About() {
         centered={true}
       />
 
-      <Card className="border">
+      <Card>
         <CardContent className="pt-6">
           <p className="text-muted-foreground mb-4">
             I'm a digital marketing professional with a unique combination of marketing expertise

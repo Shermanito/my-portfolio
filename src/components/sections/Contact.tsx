@@ -54,7 +54,7 @@ export function Contact() {
         </div>
 
         {/* Contact Form / CTA */}
-        <Card className="border p-8">
+        <Card className="p-8">
           <CardHeader className="p-0 pb-4">
             <CardTitle>Send a Message</CardTitle>
           </CardHeader>

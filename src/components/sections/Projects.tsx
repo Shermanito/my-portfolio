@@ -43,7 +43,7 @@ export function Projects() {
 
       <div className="grid md:grid-cols-2 gap-6">
         {filteredProjects.map((project) => (
-          <Card key={project.id} className="border p-6">
+          <Card key={project.id} className="p-6">
             <CardHeader className="p-0 pb-4">
               <div className="flex justify-between items-start">
                 <CardTitle className="text-lg">{project.name}</CardTitle>
