@@ -25,15 +25,25 @@ export function Experience() {
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                   <div>
                     <CardTitle className="text-lg">{experience.role}</CardTitle>
-                    <CardDescription className="mt-1">{experience.company}</CardDescription>
+                    <CardDescription className="mt-1">
+                      {experience.company}
+                      {experience.companyType && (
+                        <span className="text-muted-foreground/60"> · {experience.companyType}</span>
+                      )}
+                    </CardDescription>
                   </div>
                   <div className="text-left sm:text-right">
                     <span className="text-mono text-sm text-muted-foreground">
                       {experience.period}
                     </span>
-                    {experience.type === 'internship' && (
-                      <Badge variant="outline" className="mt-2">INTERNSHIP</Badge>
-                    )}
+                    <div className="flex gap-1 mt-2 justify-start sm:justify-end flex-wrap">
+                      {experience.type === 'contract' && (
+                        <Badge variant="outline">CONTRACT</Badge>
+                      )}
+                      {experience.type === 'internship' && (
+                        <Badge variant="outline">INTERNSHIP</Badge>
+                      )}
+                    </div>
                   </div>
                 </div>
               </CardHeader>

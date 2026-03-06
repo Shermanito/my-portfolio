@@ -1,7 +1,7 @@
 'use client';
 
 import { Section, SectionHeader } from '@/components/ui/Section';
-import { IconButton, LinkedInIcon, GitHubIcon, MailIcon, MapPinIcon } from '@/components/ui/IconButton';
+import { IconButton, LinkedInIcon, GitHubIcon, MailIcon, MapPinIcon, DribbbleIcon } from '@/components/ui/IconButton';
 import { personalInfo } from '@/data/personal';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -46,6 +46,9 @@ export function Contact() {
             </IconButton>
             <IconButton href={personalInfo.socials[1].url} label="GitHub">
               <GitHubIcon />
+            </IconButton>
+            <IconButton href={personalInfo.socials[2].url} label="Dribbble">
+              <DribbbleIcon />
             </IconButton>
             <IconButton href={`mailto:${personalInfo.email}`} label="Email">
               <MailIcon />

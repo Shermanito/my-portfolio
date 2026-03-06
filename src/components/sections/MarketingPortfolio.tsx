@@ -10,12 +10,19 @@ import { marketingProjects } from '@/data/portfolio';
 // Get unique industries for filters
 const industries = ['All', ...new Set(marketingProjects.map(p => p.industry))];
 
-export function MarketingPortfolio() {
-  const [filter, setFilter] = useState('All');
+// Get unique services for filters
+const allServices = marketingProjects.flatMap(p => p.services);
+const services = ['All', ...new Set(allServices)];
 
-  const filteredProjects = filter === 'All'
-    ? marketingProjects
-    : marketingProjects.filter(p => p.industry === filter);
+export function MarketingPortfolio() {
+  const [industryFilter, setIndustryFilter] = useState('All');
+  const [serviceFilter, setServiceFilter] = useState('All');
+
+  const filteredProjects = marketingProjects.filter(p => {
+    const matchesIndustry = industryFilter === 'All' || p.industry === industryFilter;
+    const matchesService = serviceFilter === 'All' || p.services.includes(serviceFilter);
+    return matchesIndustry && matchesService;
+  });
 
   return (
     <Section id="portfolio">
@@ -26,29 +33,48 @@ export function MarketingPortfolio() {
       />
 
       {/* Filter Buttons - Centered */}
-      <div className="flex flex-wrap justify-center gap-2 mb-8">
-        {industries.map((industry) => (
-          <Button
-            key={industry}
-            variant={filter === industry ? 'default' : 'outline'}
-            size="sm"
-            onClick={() => setFilter(industry)}
-          >
-            {industry}
-          </Button>
-        ))}
+      <div className="flex flex-col gap-4 mb-8">
+        {/* Industry Filter */}
+        <div className="flex flex-wrap justify-center gap-2">
+          <span className="text-sm text-muted-foreground self-center mr-2">Industry:</span>
+          {industries.map((industry) => (
+            <Button
+              key={industry}
+              variant={industryFilter === industry ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setIndustryFilter(industry)}
+            >
+              {industry}
+            </Button>
+          ))}
+        </div>
+        {/* Service Filter */}
+        <div className="flex flex-wrap justify-center gap-2">
+          <span className="text-sm text-muted-foreground self-center mr-2">Service:</span>
+          {services.map((service) => (
+            <Button
+              key={service}
+              variant={serviceFilter === service ? 'secondary' : 'outline'}
+              size="sm"
+              onClick={() => setServiceFilter(service)}
+            >
+              {service}
+            </Button>
+          ))}
+        </div>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project) => (
           <div key={project.id}>
-            {/* Placeholder Image */}
-            <div className="aspect-video bg-secondary rounded-t-xl border border-b-0 border-border overflow-hidden">
-              <img
-                src={`https://picsum.photos/seed/${project.id}/600/340`}
-                alt={project.company}
-                className="w-full h-full object-cover"
-              />
+            {/* Placeholder Image - Solid Color Pattern */}
+            <div className="aspect-video bg-secondary rounded-t-xl border border-b-0 border-border overflow-hidden flex items-center justify-center">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-muted-foreground/30">
+                  {project.company.charAt(0)}
+                </p>
+                <p className="text-xs text-muted-foreground/50">Coming Soon</p>
+              </div>
             </div>
 
             <Card className="rounded-t-none">
@@ -65,7 +91,12 @@ export function MarketingPortfolio() {
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.services.map((service, i) => (
-                      <Badge key={i} variant="outline">
+                      <Badge 
+                        key={i} 
+                        variant={serviceFilter === service ? 'default' : 'outline'}
+                        className="cursor-pointer hover:opacity-80 transition-opacity"
+                        onClick={() => setServiceFilter(serviceFilter === service ? 'All' : service)}
+                      >
                         {service}
                       </Badge>
                     ))}
@@ -73,7 +104,7 @@ export function MarketingPortfolio() {
                 </div>
 
                 {/* Results */}
-                <div className="mb-4">
+                <div>
                   <p className="text-xs text-muted-foreground uppercase tracking-wide mb-2">
                     Results
                   </p>

@@ -3,10 +3,11 @@ export const personalInfo = {
   title: 'Digital Marketing & Full-Stack Developer',
   tagline: 'Bridging marketing expertise with technical skills to build high-performing digital solutions.',
   email: 'hello@sherm.online',
-  location: 'Chicago, IL',
+  location: 'Houston, TX',
   socials: [
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/sherman', icon: 'linkedin' },
-    { name: 'GitHub', url: 'https://github.com/sherman', icon: 'github' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/sherman-roberts/', icon: 'linkedin' },
+    { name: 'GitHub', url: 'https://github.com/Shermanito', icon: 'github' },
+    { name: 'Dribbble', url: 'https://dribbble.com/ShermanR', icon: 'dribbble' },
   ],
 };
 

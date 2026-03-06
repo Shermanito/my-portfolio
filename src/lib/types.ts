@@ -1,7 +1,8 @@
 export interface Experience {
   id: string;
-  type: 'full-time' | 'internship';
+  type: 'full-time' | 'contract' | 'internship';
   company: string;
+  companyType?: string;
   role: string;
   period: string;
   description: string;
@@ -14,6 +15,7 @@ export interface MarketingProject {
   industry: string;
   services: string[];
   results: string[];
+  link?: string;
   testimonial?: string;
   testimonialAuthor?: string;
 }
