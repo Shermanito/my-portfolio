@@ -68,11 +68,19 @@ function MailIcon() {
   );
 }
 
+// Mobile-specific nav items (consolidated)
+const mobileNavLinks = [
+  { name: 'About', href: '#about' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Portfolio', href: '#portfolio' },
+  { name: 'More', href: '#testimonials' },
+  { name: 'Contact', href: '#contact' },
+];
+
 const iconMap: Record<string, React.ReactNode> = {
   '#about': <UserIcon />,
   '#experience': <BriefcaseIcon />,
   '#portfolio': <ChartIcon />,
-  '#projects': <CodeIcon />,
   '#tech': <CpuIcon />,
   '#testimonials': <QuoteIcon />,
   '#contact': <MailIcon />,
@@ -83,14 +91,19 @@ export function MobileNav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navLinks.map(link => link.href.slice(1));
+      // All sections in order
+      const sections = ['about', 'experience', 'portfolio', 'projects', 'tech', 'testimonials', 'contact'];
 
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 200) {
-            setActiveSection(`#${section}`);
+            // Map to mobile nav href
+            let navHref = `#${section}`;
+            if (section === 'projects') navHref = '#portfolio';
+            if (section === 'tech' || section === 'testimonials') navHref = '#testimonials';
+            setActiveSection(navHref);
             break;
           }
         }
@@ -103,7 +116,7 @@ export function MobileNav() {
 
   return (
     <nav className="mobile-nav">
-      {navLinks.map((link) => (
+      {mobileNavLinks.map((link) => (
         <a
           key={link.name}
           href={link.href}

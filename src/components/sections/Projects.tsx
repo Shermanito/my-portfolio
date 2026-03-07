@@ -14,10 +14,16 @@ const categories = ['All', ...new Set(allTech.slice(0, 6))];
 
 export function Projects() {
   const [filter, setFilter] = useState('All');
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const filteredProjects = filter === 'All'
     ? projects
     : projects.filter(p => p.tech.includes(filter));
+
+  const handleFilterChange = (category: string) => {
+    setFilter(category);
+    setIsExpanded(false);
+  };
 
   return (
     <Section id="projects">
@@ -34,47 +40,67 @@ export function Projects() {
             key={category}
             variant={filter === category ? 'default' : 'outline'}
             size="sm"
-            onClick={() => setFilter(category)}
+            onClick={() => handleFilterChange(category)}
           >
             {category}
           </Button>
         ))}
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {filteredProjects.map((project) => (
-          <Card key={project.id} className="p-6">
-            <CardHeader className="p-0 pb-4">
-              <div className="flex justify-between items-start">
-                <CardTitle className="text-lg">{project.name}</CardTitle>
-                <div className="flex gap-1">
-                  {project.link && (
-                    <IconButton href={project.link} label="Visit">
-                      <ExternalLinkIcon />
-                    </IconButton>
-                  )}
-                  {project.github && (
-                    <IconButton href={project.github} label="GitHub">
-                      <GitHubIcon />
-                    </IconButton>
-                  )}
+      {/* Expandable Grid Container */}
+      <div className="relative">
+        <div 
+          className={`grid md:grid-cols-2 gap-6 transition-all duration-500 overflow-hidden ${
+            isExpanded ? 'max-h-none' : 'max-h-[500px]'
+          }`}
+        >
+          {filteredProjects.map((project) => (
+            <Card key={project.id} className="p-6">
+              <CardHeader className="p-0 pb-4">
+                <div className="flex justify-between items-start">
+                  <CardTitle className="text-lg">{project.name}</CardTitle>
+                  <div className="flex gap-1">
+                    {project.link && (
+                      <IconButton href={project.link} label="Visit">
+                        <ExternalLinkIcon />
+                      </IconButton>
+                    )}
+                    {project.github && (
+                      <IconButton href={project.github} label="GitHub">
+                        <GitHubIcon />
+                      </IconButton>
+                    )}
+                  </div>
                 </div>
-              </div>
-              <CardDescription>{project.description}</CardDescription>
-            </CardHeader>
+                <CardDescription>{project.description}</CardDescription>
+              </CardHeader>
 
-            <CardContent className="p-0">
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((tech, i) => (
-                  <Badge key={i} variant="secondary">
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+              <CardContent className="p-0">
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech, i) => (
+                    <Badge key={i} variant="secondary">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Blueprint Style Toggle - Only show if there are more than 4 projects */}
+        {filteredProjects.length > 4 && (
+          <div className="border-t border-zinc-800 mt-0 py-4 flex justify-center">
+            <Button
+              variant="outline"
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="transition-all duration-500"
+            >
+              {isExpanded ? 'Show Less' : 'View More Projects'}
+            </Button>
+          </div>
+        )}
       </div>
     </Section>
   );
