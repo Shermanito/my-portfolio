@@ -1,7 +1,7 @@
 'use client';
 
 import { personalInfo } from '@/data/personal';
-import { IconButton, LinkedInIcon, GitHubIcon, MailIcon } from '@/components/ui/IconButton';
+import { IconButton, LinkedInIcon, GitHubIcon, MailIcon, DribbbleIcon } from '@/components/ui/IconButton';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
@@ -51,6 +51,9 @@ export function Hero() {
               <IconButton href={personalInfo.socials[1].url} label="GitHub">
                 <GitHubIcon />
               </IconButton>
+              <IconButton href={personalInfo.socials[2].url} label="Dribbble">
+                <DribbbleIcon />
+              </IconButton>
               <IconButton href={`mailto:${personalInfo.email}`} label="Email">
                 <MailIcon />
               </IconButton>
@@ -80,7 +83,7 @@ export function Hero() {
             <div className="grid grid-cols-2 gap-4">
               <Card className="p-4 text-center">
                 <CardContent className="p-0">
-                  <div className="text-2xl font-bold mb-1">5+</div>
+                  <div className="text-2xl font-bold mb-1">6+</div>
                   <div className="text-xs text-muted-foreground">Years Exp</div>
                 </CardContent>
               </Card>
@@ -98,8 +101,8 @@ export function Hero() {
               </Card>
               <Card className="p-4 text-center">
                 <CardContent className="p-0">
-                  <div className="text-2xl font-bold mb-1">200%</div>
-                  <div className="text-xs text-muted-foreground">Avg Growth</div>
+                  <div className="text-2xl font-bold mb-1">100+</div>
+                  <div className="text-xs text-muted-foreground">Websites Delivered</div>
                 </CardContent>
               </Card>
             </div>

@@ -44,3 +44,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+mylinks.md
+myresume.md
+src/data/resume v4.md
