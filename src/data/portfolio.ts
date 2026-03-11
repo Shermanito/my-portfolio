@@ -10,6 +10,7 @@ export const marketingProjects: MarketingProject[] = [
       'Improved site performance and user experience',
       'Modernized design with mobile responsiveness',
     ],
+    image: '/portfolio/screencapture-alan-faitel-2026-03-10-20_56_06 (1).webp',
   },
   {
     id: '2',
@@ -20,6 +21,7 @@ export const marketingProjects: MarketingProject[] = [
       'Enhanced conversion optimization and lead capture',
       'Streamlined content management system',
     ],
+    image: '/portfolio/screencapture-tkodumpsters-2026-03-10-21_46_48.webp',
   },
   {
     id: '3',
@@ -30,6 +32,7 @@ export const marketingProjects: MarketingProject[] = [
       'Improved site performance and user experience',
       'Modernized design with mobile responsiveness',
     ],
+    image: '/portfolio/screencapture-playgroundsafetyinspections-net-2026-03-10-21_43_28.webp',
   },
   {
     id: '4',
@@ -40,6 +43,7 @@ export const marketingProjects: MarketingProject[] = [
       'Optimized for search engines and local SEO',
       'Enhanced conversion optimization and lead capture',
     ],
+    image: '/portfolio/screencapture-norcalwholesalebark-2026-03-10-21_43_40.webp',
   },
   {
     id: '5',
@@ -50,6 +54,7 @@ export const marketingProjects: MarketingProject[] = [
       'Improved site performance and user experience',
       'Streamlined content management system',
     ],
+    image: '/portfolio/Fifth-Accelerate.webp',
   },
   {
     id: '6',
@@ -60,6 +65,7 @@ export const marketingProjects: MarketingProject[] = [
       'Optimized for search engines and local SEO',
       'Enhanced conversion optimization and lead capture',
     ],
+    image: '/portfolio/screencapture-planiversity-2026-03-10-21_43_47.webp',
   },
   {
     id: '7',
@@ -70,6 +76,7 @@ export const marketingProjects: MarketingProject[] = [
       'Improved site performance and user experience',
       'Enhanced conversion optimization and lead capture',
     ],
+    image: '/portfolio/screencapture-flashaircare-2026-03-10-21_43_57.webp',
   },
   {
     id: '8',
@@ -80,6 +87,7 @@ export const marketingProjects: MarketingProject[] = [
       'Improved site performance and user experience',
       'Modernized design with mobile responsiveness',
     ],
+    image: '/portfolio/screencapture-sudduthrealty-2026-03-10-21_45_10.webp',
   },
   {
     id: '9',
@@ -90,6 +98,7 @@ export const marketingProjects: MarketingProject[] = [
       'Improved site performance and user experience',
       'Enhanced conversion optimization and lead capture',
     ],
+    image: '/portfolio/screencapture-sephirahwellness-2026-03-10-21_45_17.webp',
   },
   {
     id: '10',
@@ -100,6 +109,7 @@ export const marketingProjects: MarketingProject[] = [
       'Improved site performance and user experience',
       'Modernized design with mobile responsiveness',
     ],
+    image: '/portfolio/screencapture-languageforleading-2026-03-10-21_45_29.webp',
   },
   {
     id: '11',
@@ -110,6 +120,7 @@ export const marketingProjects: MarketingProject[] = [
       'Improved site performance and user experience',
       'Modernized design with mobile responsiveness',
     ],
+    image: '/portfolio/screencapture-gophoenixenergy-2026-03-10-21_45_38.webp',
   },
   {
     id: '12',
@@ -120,6 +131,7 @@ export const marketingProjects: MarketingProject[] = [
       'Optimized for search engines and local SEO',
       'Modernized design with mobile responsiveness',
     ],
+    image: '/portfolio/screencapture-pinpointleakdetection-net-2026-03-10-21_45_47.webp',
   },
   {
     id: '13',
@@ -130,6 +142,7 @@ export const marketingProjects: MarketingProject[] = [
       'Improved site performance and user experience',
       'Optimized for search engines and local SEO',
     ],
+    image: '/portfolio/screencapture-chalks-2026-03-10-21_46_21.webp',
   },
   {
     id: '14',
@@ -140,6 +153,7 @@ export const marketingProjects: MarketingProject[] = [
       'Improved site performance and user experience',
       'Enhanced conversion optimization and lead capture',
     ],
+    image: '/portfolio/video-with-santa-claus.webp',
   },
   {
     id: '15',
@@ -150,6 +164,7 @@ export const marketingProjects: MarketingProject[] = [
       'Improved site performance and user experience',
       'Optimized for search engines and local SEO',
     ],
+    image: '/portfolio/screencapture-kopycat-ai-2026-03-10-21_46_30.webp',
   },
   {
     id: '16',
@@ -160,6 +175,7 @@ export const marketingProjects: MarketingProject[] = [
       'Optimized for search engines and local SEO',
       'Improved site performance and user experience',
     ],
+    image: '/portfolio/screencapture-birdgame3-2026-03-10-20_56_12.webp',
   },
   {
     id: '17',
@@ -170,5 +186,17 @@ export const marketingProjects: MarketingProject[] = [
       'Improved site performance and user experience',
       'Streamlined content management system',
     ],
+    image: '/portfolio/screencapture-forklense-io-2026-03-10-21_46_41.webp',
+  },
+  {
+    id: '18',
+    company: 'Optimal Neck Support Brace',
+    industry: 'Ecomm',
+    services: ['Design', 'Development'],
+    results: [
+      'Improved site performance and user experience',
+      'Modernized design with mobile responsiveness',
+    ],
+    image: '/portfolio/Optimal-Neck-Support-Brace.webp',
   },
 ];

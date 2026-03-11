@@ -16,6 +16,7 @@ export interface MarketingProject {
   services: string[];
   results: string[];
   link?: string;
+  image?: string;
   testimonial?: string;
   testimonialAuthor?: string;
 }

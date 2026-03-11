@@ -115,14 +115,24 @@ export function MarketingPortfolio() {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.slice(0, visibleCount).map((project) => (
           <div key={project.id}>
-            {/* Placeholder Image - Solid Color Pattern */}
-            <div className="aspect-video bg-secondary rounded-t-xl border border-b-0 border-border overflow-hidden flex items-center justify-center">
-              <div className="text-center">
-                <p className="text-2xl font-bold text-muted-foreground/30">
-                  {project.company.charAt(0)}
-                </p>
-                <p className="text-xs text-muted-foreground/50">Coming Soon</p>
-              </div>
+            {/* Project Image */}
+            <div className="aspect-video rounded-t-xl border border-b-0 border-border overflow-hidden bg-secondary">
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={`${project.company} website`}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-muted-foreground/30">
+                      {project.company.charAt(0)}
+                    </p>
+                    <p className="text-xs text-muted-foreground/50">Coming Soon</p>
+                  </div>
+                </div>
+              )}
             </div>
 
             <Card className="rounded-t-none">
