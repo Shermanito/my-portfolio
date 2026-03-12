@@ -1,5 +1,7 @@
 import { MarketingProject } from '@/lib/types';
 
+// To reorder: change the priority numbers (lower = shows first)
+// priority: 1 will appear at the top, priority: 18 at the bottom
 export const marketingProjects: MarketingProject[] = [
   {
     id: '1',
@@ -11,6 +13,7 @@ export const marketingProjects: MarketingProject[] = [
       'Modernized design with mobile responsiveness',
     ],
     image: '/portfolio/screencapture-alan-faitel-2026-03-10-20_56_06 (1).webp',
+    priority: 17,
   },
   {
     id: '2',
@@ -22,6 +25,7 @@ export const marketingProjects: MarketingProject[] = [
       'Streamlined content management system',
     ],
     image: '/portfolio/screencapture-tkodumpsters-2026-03-10-21_46_48.webp',
+    priority: 10,
   },
   {
     id: '3',
@@ -33,6 +37,7 @@ export const marketingProjects: MarketingProject[] = [
       'Modernized design with mobile responsiveness',
     ],
     image: '/portfolio/screencapture-playgroundsafetyinspections-net-2026-03-10-21_43_28.webp',
+    priority: 9,
   },
   {
     id: '4',
@@ -44,6 +49,7 @@ export const marketingProjects: MarketingProject[] = [
       'Enhanced conversion optimization and lead capture',
     ],
     image: '/portfolio/screencapture-norcalwholesalebark-2026-03-10-21_43_40.webp',
+    priority: 8,
   },
   {
     id: '5',
@@ -55,6 +61,7 @@ export const marketingProjects: MarketingProject[] = [
       'Streamlined content management system',
     ],
     image: '/portfolio/Fifth-Accelerate.webp',
+    priority: 9,
   },
   {
     id: '6',
@@ -66,6 +73,7 @@ export const marketingProjects: MarketingProject[] = [
       'Enhanced conversion optimization and lead capture',
     ],
     image: '/portfolio/screencapture-planiversity-2026-03-10-21_43_47.webp',
+    priority: 11,
   },
   {
     id: '7',
@@ -77,6 +85,7 @@ export const marketingProjects: MarketingProject[] = [
       'Enhanced conversion optimization and lead capture',
     ],
     image: '/portfolio/screencapture-flashaircare-2026-03-10-21_43_57.webp',
+    priority: 15,
   },
   {
     id: '8',
@@ -88,6 +97,7 @@ export const marketingProjects: MarketingProject[] = [
       'Modernized design with mobile responsiveness',
     ],
     image: '/portfolio/screencapture-sudduthrealty-2026-03-10-21_45_10.webp',
+    priority: 8,
   },
   {
     id: '9',
@@ -99,6 +109,7 @@ export const marketingProjects: MarketingProject[] = [
       'Enhanced conversion optimization and lead capture',
     ],
     image: '/portfolio/screencapture-sephirahwellness-2026-03-10-21_45_17.webp',
+    priority: 17,
   },
   {
     id: '10',
@@ -110,6 +121,7 @@ export const marketingProjects: MarketingProject[] = [
       'Modernized design with mobile responsiveness',
     ],
     image: '/portfolio/screencapture-languageforleading-2026-03-10-21_45_29.webp',
+    priority: 18,
   },
   {
     id: '11',
@@ -121,6 +133,7 @@ export const marketingProjects: MarketingProject[] = [
       'Modernized design with mobile responsiveness',
     ],
     image: '/portfolio/screencapture-gophoenixenergy-2026-03-10-21_45_38.webp',
+    priority: 11,
   },
   {
     id: '12',
@@ -131,7 +144,8 @@ export const marketingProjects: MarketingProject[] = [
       'Optimized for search engines and local SEO',
       'Modernized design with mobile responsiveness',
     ],
-    image: '/portfolio/screencapture-pinpointleakdetection-net-2026-03-10-21_45_47.webp',
+    image: '/portfolio/screencapture-pinpointleakdetection-2026-03-10-20_56_06.webp',
+    priority: 6,
   },
   {
     id: '13',
@@ -143,6 +157,7 @@ export const marketingProjects: MarketingProject[] = [
       'Optimized for search engines and local SEO',
     ],
     image: '/portfolio/screencapture-chalks-2026-03-10-21_46_21.webp',
+    priority: 2,
   },
   {
     id: '14',
@@ -154,6 +169,7 @@ export const marketingProjects: MarketingProject[] = [
       'Enhanced conversion optimization and lead capture',
     ],
     image: '/portfolio/video-with-santa-claus.webp',
+    priority: 14,
   },
   {
     id: '15',
@@ -165,6 +181,7 @@ export const marketingProjects: MarketingProject[] = [
       'Optimized for search engines and local SEO',
     ],
     image: '/portfolio/screencapture-kopycat-ai-2026-03-10-21_46_30.webp',
+    priority: 1,
   },
   {
     id: '16',
@@ -176,6 +193,7 @@ export const marketingProjects: MarketingProject[] = [
       'Improved site performance and user experience',
     ],
     image: '/portfolio/screencapture-birdgame3-2026-03-10-20_56_12.webp',
+    priority: 7,
   },
   {
     id: '17',
@@ -187,6 +205,7 @@ export const marketingProjects: MarketingProject[] = [
       'Streamlined content management system',
     ],
     image: '/portfolio/screencapture-forklense-io-2026-03-10-21_46_41.webp',
+    priority: 7,
   },
   {
     id: '18',
@@ -198,5 +217,6 @@ export const marketingProjects: MarketingProject[] = [
       'Modernized design with mobile responsiveness',
     ],
     image: '/portfolio/Optimal-Neck-Support-Brace.webp',
+    priority: 14,
   },
 ];

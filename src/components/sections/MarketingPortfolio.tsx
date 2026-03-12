@@ -31,7 +31,12 @@ export function MarketingPortfolio() {
     return () => window.removeEventListener('resize', checkScreen);
   }, []);
 
-  const filteredProjects = marketingProjects.filter(p => {
+  // Sort by priority (lower number = higher priority)
+  const sortedProjects = [...marketingProjects].sort((a, b) => 
+    (a.priority ?? 999) - (b.priority ?? 999)
+  );
+
+  const filteredProjects = sortedProjects.filter(p => {
     const matchesIndustry = industryFilter === 'All' || p.industry === industryFilter;
     const matchesService = serviceFilter === 'All' || p.services.includes(serviceFilter);
     return matchesIndustry && matchesService;
