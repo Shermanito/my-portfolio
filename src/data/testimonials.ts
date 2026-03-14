@@ -57,4 +57,12 @@ export const testimonials: Testimonial[] = [
     company: 'Upwork',
     summary: 'Client Training',
   },
+  {
+    id: '8',
+    quote: 'Sherman did a great job of independently creating constructive ideas for the business. His knowledge of SEO and its application is very impressive, and we made quite a few changes to the website, based on his recommendations. I would absolutely have him on the team again.',
+    author: 'Erich Allen',
+    title: 'Founder',
+    company: 'Planiversity, LLC',
+    summary: 'SEO & Website Development',
+  },
 ];
