@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import Autoplay from 'embla-carousel-autoplay'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -30,6 +31,9 @@ type TestimonialsComponentProps = {
 
 const TestimonialsComponent = ({ testimonials }: TestimonialsComponentProps) => {
   const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set())
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })
+  )
 
   const toggleExpand = (index: number) => {
     setExpandedIds(prev => {
@@ -58,8 +62,10 @@ const TestimonialsComponent = ({ testimonials }: TestimonialsComponentProps) => 
         className='mx-auto flex max-w-7xl gap-12 px-4 max-sm:flex-col sm:items-center sm:gap-16 sm:px-6 lg:gap-24 lg:px-8'
         opts={{
           align: 'start',
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          loop: true
         }}
+        plugins={[autoplayPlugin.current]}
       >
         {/* Left Content */}
         <div className='space-y-4 sm:w-1/2 lg:w-1/3'>
