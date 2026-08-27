@@ -21,7 +21,7 @@ export function Hero() {
               <ThemeToggle />
             </div>
             <p className="text-mono text-sm text-muted-foreground mb-4">
-              DIGITAL MARKETING + DEVELOPMENT
+              {personalInfo.categoryLabel}
             </p>
             <h1 className="heading-xl mb-6">
               {personalInfo.name}
@@ -65,11 +65,23 @@ export function Hero() {
             {/* Hero Image */}
             <div className="relative">
               <Card className="aspect-[4/3] overflow-hidden p-0">
-                <img
-                  src="/465997400 (1).jpeg"
-                  alt={personalInfo.name}
-                  className="w-full h-full object-cover"
-                />
+                <picture>
+                  <source
+                    srcSet="/sherman-roberts-web-developer-marketing-automation.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/sherman-roberts-web-developer-marketing-automation.jpg"
+                    alt="Sherman Roberts - Web Developer & Marketing Automation Specialist"
+                    title="Sherman Roberts Headshot"
+                    loading="eager"
+                    fetchPriority="high"
+                    width={1200}
+                    height={900}
+                    decoding="async"
+                    className="w-full h-full object-cover grayscale-0 hover:grayscale-[75%] dark:grayscale-[75%] dark:hover:grayscale-0 transition-[filter] duration-300"
+                  />
+                </picture>
               </Card>
 
               {/* Available for Work Badge */}

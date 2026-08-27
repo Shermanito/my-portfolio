@@ -1,7 +1,9 @@
 export const personalInfo = {
   name: 'Sherman',
-  title: 'Digital Marketing & Full-Stack Developer',
-  tagline: 'Bridging marketing expertise with technical skills to build high-performing digital solutions.',
+  categoryLabel: 'WEBSITES • SEO • AUTOMATION',
+  title: 'Web Developer & Marketing Automation Specialist',
+  tagline:
+    'Turning website traffic into booked leads with high-performing web design, local SEO dominance, and automated client acquisition.',
   email: 'hello@sherm.online',
   location: 'Houston, TX',
   socials: [
