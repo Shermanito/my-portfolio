@@ -47,3 +47,11 @@ next-env.d.ts
 mylinks.md
 myresume.md
 src/data/resume v4.md
+
+# AI Agent Caches & Task Logs
+.roo/
+.claude/
+.cursor/
+
+# OS / Local Temp Files
+*.tmp
