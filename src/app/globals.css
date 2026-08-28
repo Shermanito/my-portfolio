@@ -2,7 +2,9 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
+/* Auto dark theme: `dark:` utilities follow the OS via prefers-color-scheme.
+   The transient toggle overrides this by adding .dark/.light to <html>. */
+@custom-variant dark (&:is(.dark *, :where(@media (prefers-color-scheme: dark))));
 @custom-variant light (&:is(.light *));
 
 /* Dark Grayscale Theme - No absolute Black/White */

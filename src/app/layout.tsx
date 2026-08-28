@@ -216,10 +216,9 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  var theme = localStorage.getItem("theme");
-                  if (!theme) {
-                    theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-                  }
+                  // Auto dark theme: follow OS preference. No localStorage — the
+                  // toggle is transient and resets to the OS preference on reload.
+                  var theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
                   document.documentElement.classList.add(theme);
                 } catch (e) {}
               })();

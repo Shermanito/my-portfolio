@@ -23,27 +23,38 @@ function getSystemPreference(): Theme {
   return 'dark';
 }
 
+function applyTheme(theme: Theme) {
+  document.documentElement.classList.toggle('dark', theme === 'dark');
+  document.documentElement.classList.toggle('light', theme === 'light');
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark');
+  // Lazy initializer reads the OS preference on first client render — no effect needed.
+  const [theme, setTheme] = useState<Theme>(() => getSystemPreference());
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem('theme') as Theme | null;
-    const prefersDark = getSystemPreference();
-    const initialTheme = stored || prefersDark;
-
-    setTheme(initialTheme);
-    document.documentElement.classList.toggle('dark', initialTheme === 'dark');
-    document.documentElement.classList.toggle('light', initialTheme === 'light');
+    // Sync the DOM class with the initial state, then mark as mounted.
+    applyTheme(theme);
     setMounted(true);
+
+    // Auto-update when the OS color scheme changes (no localStorage — transient).
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (event: MediaQueryListEvent) => {
+      const next: Theme = event.matches ? 'dark' : 'light';
+      setTheme(next);
+      applyTheme(next);
+    };
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    const newTheme: Theme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
-    document.documentElement.classList.toggle('light', newTheme === 'light');
+    applyTheme(newTheme);
+    // No localStorage — override is transient and resets to OS preference on reload.
   };
 
   return (
